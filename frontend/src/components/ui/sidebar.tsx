@@ -152,6 +152,7 @@ function SidebarProvider({
 }
 
 function Sidebar({
+
   side = "left",
   variant = "sidebar",
   collapsible = "offcanvas",
@@ -162,6 +163,9 @@ function Sidebar({
   side?: "left" | "right"
   variant?: "sidebar" | "floating" | "inset"
   collapsible?: "offcanvas" | "icon" | "none"
+  username?: string
+  email?: string
+  image?: any
 }) {
   const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
 
