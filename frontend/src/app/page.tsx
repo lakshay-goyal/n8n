@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { use, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -42,10 +42,12 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
+import { useRouter } from "next/navigation";
 
 export default function Home(){
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [automationProgress, setAutomationProgress] = useState(75);
+  const router = useRouter();
 
   const features = [
     {
@@ -280,7 +282,7 @@ export default function Home(){
               size="lg" 
               variant="outline" 
               className="border-2 border-pink-200 hover:bg-pink-50 text-lg px-8 py-6"
-              onClick={() => toast.success("Starting your free trial!")}
+              onClick={() => router.push("/register")}
             >
               Start Free Trial
               <Rocket className="w-5 h-5 ml-2" />
